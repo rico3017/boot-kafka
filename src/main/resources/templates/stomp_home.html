@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/css/core.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="container">
+    <div class="left">
+        <h2 class="title">Sending</h2>
+        <div class="form-wrap">
+            <div class="field">
+                <input type="text" placeholder="Topic" id="topic">
+            </div>
+            <div class="field">
+                <input type="text" placeholder="Message" id="message">
+            </div>
+            <div class="field">
+                <input type="text" placeholder="Who are you?" id="name">
+            </div>
+            <div class="field">
+                <a href="javascript:;" onclick="sendTopic()">Send Topic</a>
+            </div>
+            <div class="field">
+                <a href="javascript:;" onclick="sendQueue()">Send Queue</a>
+            </div>
+            <div class="field">
+                <a href="javascript:;" onclick="subscribeTopic(this)">Subscribe Topic</a>
+            </div>
+            <div class="field">
+                <a href="javascript:;" onclick="subscribeQueue(this)">Subscribe Queue</a>
+            </div>
+            <div class="field">
+                <a href="javascript:;" onclick="subscribePoint(this)">Subscribe Point</a>
+            </div>
+            <div class="field">
+                <a href="javascript:;" onclick="sendKafka()">Send Kafka</a>
+            </div>
+            <div class="field">
+                <a href="javascript:;" onclick="kafkaReceive(this)">Receive Kafka</a>
+            </div>
+        </div>
+    </div>
+    <div class="right">
+        <!--<div class="common-message send-text"></div>-->
+        <!--<div class="common-message receive-text"></div>-->
+    </div>
+
+</div>
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/sockjs-client/1.1.4/sockjs.min.js"></script>
+<script src="https://cdn.bootcss.com/stomp.js/2.3.3/stomp.min.js"></script>
+<script th:src="@{/js/core.js}"></script>
+</body>
+</html>
