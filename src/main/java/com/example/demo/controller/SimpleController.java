@@ -38,15 +38,15 @@ public class SimpleController {
         return new Welcome("...", "Thank You!");
     }
 
-    @MessageMapping("/sendMessageTopic")
-    @SendTo("/topic/webSocketTopic")
+    @MessageMapping("/sendMessageTopic")  //指定要接收消息的地址，类似@RequestMapping
+    @SendTo("/topic/webSocketTopic")   //会将接收到的消息发送到指定的路由目的地，所有订阅该消息的前端用户都能收到，属于广播
     public Welcome sendToTopic(@RequestBody Welcome welcome){
         System.out.println("Send-Topic-Msg:" + welcome);
         return welcome;
     }
 
     @MessageMapping("/sendMessageQueue")
-    @SendToUser("/queue/webSocketQueue")
+    @SendToUser("/queue/webSocketQueue") //单个用户
     public Welcome sendToQueue(@RequestBody Welcome welcome){
         System.out.println("Send-Queue-Msg:" + welcome);
         return welcome;
